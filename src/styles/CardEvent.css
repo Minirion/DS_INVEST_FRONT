@@ -1,0 +1,42 @@
+.box-card {
+  display: flex;
+  width: 1000px;
+  overflow-x: scroll;
+  display: flex;
+  padding: 3rem;
+}
+
+.box-card-event {
+  display: grid;
+  grid-row: auto;
+  width: 12rem;
+  grid-template-columns: (7rem 7rem 7rem);
+  height: 15rem;
+  border-radius: 16px;
+  box-shadow: -0.2rem 0 1rem #31313159;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+}
+
+.box-card-event:not(:first-child) {
+  margin-left: -60px;
+}
+
+.box-card-event:hover~.box-card-event{
+  transform: translateX(130px);
+}
+
+.box-card-event:hover {
+  transform: translateY(-1rem);
+}
+
+.box-img-card-event {
+  position: relative;
+  overflow: hidden;
+}
+
+.box-img-card-event img {
+  width: 110%;
+  border-radius: 16px;
+}

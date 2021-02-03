@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import CardEvent from "./CardEvent";
+
 class StartupList extends React.Component {
   constructor(props) {
     super(props);
@@ -11,10 +13,11 @@ class StartupList extends React.Component {
 
   componentDidMount() {
     axios
-      .get("api/eventslist")
+      .get("http://localhost:5000/api/eventslist")
       .then((res) => {
         const eventList = res.data;
         this.setState({ eventList });
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -26,13 +29,19 @@ class StartupList extends React.Component {
     const eventList = this.state.eventList;
     console.log(eventList);
     return (
-      <>
-          {eventList.map((event) => (
-                  <h3>
-                    {event.event_name}
-                  </h3>
-          ))
-  }
+       <>
+        <div className="box-card">
+           {eventList.map((event) => (
+             <CardEvent 
+              key={event.ids}
+              name={event.name_event}
+              description={event.description}
+              date={event.date}
+              theme={event.theme}
+              />
+            ))
+          }
+        </div>
       </>
     );
   }
