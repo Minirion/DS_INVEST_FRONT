@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
 
-import CardEvent from "./CardEvent";
+import Filtre from "./FilterEvent";
 
-class StartupList extends React.Component {
+class EventList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       eventList: [],
+      chosenTheme: "",
     };
   }
 
@@ -25,26 +26,26 @@ class StartupList extends React.Component {
     console.log(this.state);
   }
 
+  handleChangeTheme = (e) => {
+    const newFilter = e.target.value;
+    this.setState({
+      chosenTheme: newFilter,
+    });
+  };
+
   render() {
-    const eventList = this.state.eventList;
-    console.log(eventList);
+    const chosenTheme = this.state.chosenTheme;
+
     return (
        <>
-        <div className="box-card">
-           {eventList.map((event) => (
-             <CardEvent 
-              key={event.ids}
-              name={event.name_event}
-              description={event.description}
-              date={event.date}
-              theme={event.theme}
-              />
-            ))
-          }
-        </div>
-      </>
+        <Filtre
+          chosenTheme={chosenTheme}
+          handleChange={this.handleChangeTheme}
+          eventList={this.state.eventList}
+        />
+     </>
     );
   }
 }
 
-export default StartupList;
+export default EventList;

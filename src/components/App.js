@@ -2,27 +2,49 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import EventList from "./EventList";
+import EventPresentation from "./EventPresentation";
 
-function App() {
+class App extends React.Component {
+constructor(props) {
+  super(props);
+  this.state = {
+    // eventName: "",
+  };
+}
+
+handleChangeEventName = (e) => {
+  const eventName = e.target.value;
+  this.setState({
+    eventName,
+  });
+};
+
+render() {
   return (
     <>
     <Router>
     <div className="menu">
-      <Link to="/eventslist">
+      <Link to="/events">
         Découvrir events
       </Link>
     </div>
 
     <div className="App">
       <Switch>
-        <Route exact path="/eventslist">
+        <Route exact path="/events">
           <EventList />
         </Route>
       </Switch>
+      {/* <Switch>
+        <Route exact path="/event/">
+          <EventPresentation eventName={this.state.eventName} />
+        </Route>
+      </Switch> */}
     </div>
   </Router>
 </>
 );
+}
 }
 
 export default App;
