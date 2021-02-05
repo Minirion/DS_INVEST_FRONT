@@ -93,3 +93,7 @@
   text-decoration: none;
   color: #3f3e3e;
 }
+
+.inscription-none {
+  display:none;
+}

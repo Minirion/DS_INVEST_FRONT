@@ -15,6 +15,8 @@ class EventPresentation extends React.Component {
     super(props);
     this.state = {
       event: "",
+      submitInscription: false,
+      participationChoice: false,
     };
   }
 
@@ -30,7 +32,25 @@ class EventPresentation extends React.Component {
       .catch((err) => {
         console.log(err);
       });
-  }
+      
+    }
+
+    onClickParticipe = (e) => {
+      e.preventDefault()
+      this.setState({
+        participationChoice: true,
+      });
+    };
+  
+    submitInscription = (e) => {
+    e.preventDefault()
+    // mettre le axios post
+    this.setState({
+      submitInscription: true,
+    });
+  
+    alert(`Merci de participer à cet évènement !`);
+  };
 
   render() {
     const eventInfo = this.state.event;
@@ -51,10 +71,30 @@ class EventPresentation extends React.Component {
       <p>{eventInfo.description}</p>
       <p>{eventInfo.date}</p>
       <p>{eventInfo.number_participants}</p>
-      <button>Participer à cet évènement</button>
-      <button><a target="_blank" href={`https://www.google.com/calendar/render?action=TEMPLATE&text=${eventInfo.name_event}&dates=${eventInfo.date}&ctz=${eventInfo.lieu}`} > 
-      Ajouter cet évènement dans à mon Angenda </a></button> 
-
+      <button onClick={this.onClickParticipe} >Participer à cet évènement</button>
+      <form onSubmit={this.submitInscription} className={
+                this.state.participationChoice === true
+                  ? "inscription"
+                  : "inscription-none"}>
+        <label htmlFor="nom/prénom">
+          <input type="text" name="Nom et Prénom" />
+        </label>
+        <label htmlFor="nom/prénom">
+          <input type="text" name="Mail" />
+        </label>
+        <label htmlFor="nom/prénom">
+          <input type="submit" name="Inscription" value="Je m'inscris" />
+        </label>
+      </form>
+      <button className={
+                this.state.submitInscription === true
+                  ? "inscription"
+                  : "inscription-none"
+              }>
+        <a target="_blank" href={`https://www.google.com/calendar/render?action=TEMPLATE&text=${eventInfo.name_event}&dates=${eventInfo.date}&ctz=${eventInfo.lieu}`} > 
+      Ajouter cet évènement à mon Angenda 
+        </a>
+      </button> 
     </>
   );
 };
