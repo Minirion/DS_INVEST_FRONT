@@ -31,7 +31,8 @@ class EventPresentation extends React.Component {
     const eventInfo = this.state.event;
   return (
     <>
-  <h1>{eventInfo.name_event}</h1>
+      <h1>{eventInfo.name_event}</h1>
+
     </>
   );
 };

@@ -1,6 +1,6 @@
 .box-card {
   display: flex;
-  width: 1000px;
+  width: 500%;
   overflow-x: scroll;
   display: flex;
   padding: 3rem;

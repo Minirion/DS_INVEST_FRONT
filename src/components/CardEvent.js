@@ -46,8 +46,8 @@ const CardEvent = ({ theme, date, description, name, key }) => {
         <p className="box-event-description">{description}</p>
       </div>
       <button> 
-        <Link to={`/event/${name}`}> Plus d'informations </Link> 
-      </button>
+      <Link to={`/event/${name}`}>Plus d'informations </Link>
+      </button> 
     </div>
     </>
   );
