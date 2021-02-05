@@ -1,0 +1,95 @@
+.box-card {
+  display: flex;
+  width: 1000px;
+  overflow-x: scroll;
+  display: flex;
+  padding: 3rem;
+}
+
+.box-card-event {
+  grid-row: auto auto;
+  width: 20rem;
+  background-color: rgb(231, 231, 231);
+  grid-template-rows: 10rem auto;
+  height: 30rem;
+  border-radius: 16px;
+  box-shadow: -0.8rem 0 1.2rem #31313159;
+  transition: 0.2s;
+  display: grid;
+  grid-template-columns: 4rem 8rem 8rem;
+}
+
+.box-event-theme {
+  transform: rotate(
+    -90deg
+    );
+  align-self: start;
+  justify-self: center;
+  grid-column: 1;
+  padding: 1rem;
+  width: 7rem;
+  margin: 0;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.box-event-name {
+  grid-column: 2 / 4;
+  margin: 1rem;
+  max-height: 1rem;
+}
+
+.box-event-description {
+  grid-column: 2 / 4;
+  padding: 0.8rem;
+
+}
+
+.box-wrap-event-description {
+  grid-column: 2 / 4;
+  max-height: 4rem;
+  overflow: hidden;
+  margin: 0;
+}
+
+.box-card-event:not(:first-child) {
+  margin-left: -60px;
+}
+
+.box-card-event:hover~.box-card-event{
+  transform: translateX(130px);
+}
+
+.box-card-event:hover {
+  transform: translateY(-1rem);
+}
+
+.box-img-card-event {
+  grid-column: 1 / 4;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  height: 10rem;
+}
+
+.box-img-card-event img {
+  width: 170%;
+  border-radius: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-10%, -30%);
+}
+
+.box-card-event button {
+  grid-column: 1 / 4;
+    margin: 0 2rem 2rem;
+    box-shadow: -0.5rem 0 0.8rem #31313159;
+    border-radius: 35px;
+    border: none;
+    width: 80%;
+}
+
+.box-card-event a {
+  text-decoration: none;
+  color: #3f3e3e;
+}
