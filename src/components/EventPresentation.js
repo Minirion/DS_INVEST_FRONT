@@ -4,6 +4,11 @@ import axios from "axios";
 
 import "../styles/CardEvent.css"; 
 
+import patrimoine from "../img/patrimoine.jpg";
+import invest from "../img/invest.jpg";
+import like from "../img/like.jpg";
+import devperso from "../img/devperso.jpg";
+
 
 class EventPresentation extends React.Component {
   constructor(props) {
@@ -32,6 +37,23 @@ class EventPresentation extends React.Component {
   return (
     <>
       <h1>{eventInfo.name_event}</h1>
+      <div className="box-img-card-event">
+          {eventInfo.theme === "Immobilier" ? (
+            <img className="img-card-event" src={patrimoine} alt={`img event patrimoine`} />) :
+            eventInfo.theme === "Tips" ? (
+              <img className="img-card-event" src={like} alt={`img event tips`} /> ) :
+              eventInfo.theme === "Développement Personnel" ? (
+                <img className="img-card-event" src={devperso} alt={`img event developpement personnel`} />) : (
+                  <img className="img-card-event" src={invest} alt={`img event patrimoine`} />) }
+      </div>
+      <p>{eventInfo.lieu}</p>
+      <p>{eventInfo.theme}</p>
+      <p>{eventInfo.description}</p>
+      <p>{eventInfo.date}</p>
+      <p>{eventInfo.number_participants}</p>
+      <button>Participer à cet évènement</button>
+      <button><a target="_blank" href={`https://www.google.com/calendar/render?action=TEMPLATE&text=${eventInfo.name_event}&dates=${eventInfo.date}&ctz=${eventInfo.lieu}`} > 
+      Ajouter cet évènement dans à mon Angenda </a></button> 
 
     </>
   );
