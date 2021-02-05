@@ -34,12 +34,10 @@ render() {
         <Route exact path="/events">
           <EventList />
         </Route>
+        <Route path="/event/:name"
+          component={EventPresentation} 
+        />
       </Switch>
-      {/* <Switch>
-        <Route exact path="/event/">
-          <EventPresentation eventName={this.state.eventName} />
-        </Route>
-      </Switch> */}
     </div>
   </Router>
 </>

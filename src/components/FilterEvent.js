@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import CardEvent from "./CardEvent";
-import EventList from "./EventList";
 
 class Filtre extends Component {
   constructor(props) {

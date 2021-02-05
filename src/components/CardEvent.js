@@ -8,6 +8,7 @@ import devperso from "../img/devperso.jpg";
 
 import "../styles/CardEvent.css"; 
 import EventList from "./EventList";
+import EventPresentation from "./EventPresentation";
 
 const CardEvent = ({ theme, date, description, name, key }) => {
   return (
@@ -42,9 +43,11 @@ const CardEvent = ({ theme, date, description, name, key }) => {
               {color:"#808080"} )}
       >_____________</p>
       <div className="box-wrap-event-description">
-      <p className="box-event-description">{description}</p>
+        <p className="box-event-description">{description}</p>
       </div>
-      <button><Link to={`/event/`}>Plus d'informations</Link></button>
+      <button> 
+        <Link to={`/event/${name}`}> Plus d'informations </Link> 
+      </button>
     </div>
     </>
   );
