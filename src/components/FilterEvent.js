@@ -51,7 +51,7 @@ class Filtre extends Component {
         (theme => (theme.theme === this.state.chosenTheme) ))
       .map((eventList) => (
     <CardEvent  
-              key={eventList.id}
+              id={eventList.id}
               name={eventList.name_event}
               description={eventList.description}
               date={eventList.date}

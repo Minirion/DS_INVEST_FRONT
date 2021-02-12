@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 import patrimoine from "../img/patrimoine.jpg";
 import invest from "../img/invest.jpg";
@@ -7,10 +7,8 @@ import like from "../img/like.jpg";
 import devperso from "../img/devperso.jpg";
 
 import "../styles/CardEvent.css"; 
-import EventList from "./EventList";
-import EventPresentation from "./EventPresentation";
 
-const CardEvent = ({ theme, date, description, name, key }) => {
+const CardEvent = ({ theme, date, id, description, name, key }) => {
   return (
     <>
     <div className="box-card-event">
@@ -19,7 +17,7 @@ const CardEvent = ({ theme, date, description, name, key }) => {
           <img className="img-card-event" src={patrimoine} alt={`img event patrimoine`} />) :
           theme === "Tips" ? (
           <img className="img-card-event" src={like} alt={`img event tips`} /> ) :
-          theme === "Développement Personnel" ? (
+          theme === "Dev. Perso" ? (
           <img className="img-card-event" src={devperso} alt={`img event developpement personnel`} />) : (
           <img className="img-card-event" src={invest} alt={`img event patrimoine`} />) }
       </div>
@@ -46,7 +44,7 @@ const CardEvent = ({ theme, date, description, name, key }) => {
         <p className="box-event-description">{description}</p>
       </div>
       <button> 
-      <Link to={`/event/${name}`}>Plus d'informations </Link>
+      <Link to={`/event/${id}`}>Plus d'informations </Link>
       </button> 
     </div>
     </>
